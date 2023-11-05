@@ -39,6 +39,7 @@ public class TelaInicial extends javax.swing.JFrame {
         campoSenha = new javax.swing.JPasswordField();
         BotaoEntrar = new javax.swing.JButton();
         BotaoCadastrar = new javax.swing.JButton();
+        areaDeTrabalho = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,13 +78,20 @@ public class TelaInicial extends javax.swing.JFrame {
             }
         });
 
+        areaDeTrabalho.setText("Area de Trabalho");
+        areaDeTrabalho.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                areaDeTrabalhoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -96,16 +104,19 @@ public class TelaInicial extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(BotaoEntrar)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(BotaoCadastrar))
-                                    .addComponent(campoSenha)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(campoSenha))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(72, Short.MAX_VALUE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(99, 99, 99))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(BotaoEntrar)
+                .addGap(18, 18, 18)
+                .addComponent(BotaoCadastrar)
+                .addGap(27, 27, 27)
+                .addComponent(areaDeTrabalho)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,7 +136,8 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotaoEntrar)
-                    .addComponent(BotaoCadastrar))
+                    .addComponent(BotaoCadastrar)
+                    .addComponent(areaDeTrabalho))
                 .addGap(61, 61, 61))
         );
 
@@ -133,50 +145,63 @@ public class TelaInicial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void campoLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoLoginActionPerformed
-   
-    
+
+
     }//GEN-LAST:event_campoLoginActionPerformed
 
     private void BotaoEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEntrarActionPerformed
-        
+
         Usuario u = new Usuario();
         u.setLogin(campoLogin.getText());
-        u.setSenha(campoSenha.getText()); 
+        u.setSenha(campoSenha.getText());
         UsuarioDAO udao = new UsuarioDAO();
         udao.validarLoginSenha(u.getLogin(), u.getSenha());
-        
-         boolean loginValido = validarLoginSenha(u.getLogin(), u.getSenha());
-                
-        if(loginValido){
-            
-        JOptionPane.showMessageDialog(rootPane, "Acesso Autorizado");
-        }else{
-        JOptionPane.showMessageDialog(rootPane, "Acesso Negado ");
-        
+
+        boolean loginValido = validarLoginSenha(u.getLogin(), u.getSenha());
+
+        if (loginValido) {
+
+            JOptionPane.showMessageDialog(rootPane, "Acesso Autorizado");
+
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Acesso Negado ");
+
         }
-        
-       
-       
-        
-  
-        
-       
-        
-        
-        
-        
-       
+
+
     }//GEN-LAST:event_BotaoEntrarActionPerformed
 
     private void BotaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCadastrarActionPerformed
-      TelaCadastro tc = new TelaCadastro();
-      tc.setVisible(true);
-      
+        TelaCadastro tc = new TelaCadastro();
+        tc.setVisible(true);
+
     }//GEN-LAST:event_BotaoCadastrarActionPerformed
 
     private void campoSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoSenhaActionPerformed
-        
+
     }//GEN-LAST:event_campoSenhaActionPerformed
+
+    private void areaDeTrabalhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_areaDeTrabalhoActionPerformed
+        Usuario u = new Usuario();
+        u.setLogin(campoLogin.getText());
+        u.setSenha(campoSenha.getText());
+        UsuarioDAO udao = new UsuarioDAO();
+        udao.validarLoginSenha(u.getLogin(), u.getSenha());
+
+        boolean loginValido = validarLoginSenha(u.getLogin(), u.getSenha());
+
+        if (loginValido) {
+
+            TelaAreaDeTrabalho at = new TelaAreaDeTrabalho();
+            at.setVisible(true);
+
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "É necessário estar logado. ");
+
+        }
+
+
+    }//GEN-LAST:event_areaDeTrabalhoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -216,6 +241,7 @@ public class TelaInicial extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoCadastrar;
     private javax.swing.JButton BotaoEntrar;
+    private javax.swing.JButton areaDeTrabalho;
     private javax.swing.JTextField campoLogin;
     private javax.swing.JPasswordField campoSenha;
     private javax.swing.JLabel jLabel1;

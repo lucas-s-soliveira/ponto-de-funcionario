@@ -10,7 +10,7 @@ import br.com.lucasoliveira.view.TelaInicial;
  *
  * @author lucas
  */
-public class MapaProg2 {
+public class BatePonto {
 
     /**
      * @param args the command line arguments
