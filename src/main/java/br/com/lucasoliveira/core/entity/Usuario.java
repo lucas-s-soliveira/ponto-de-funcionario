@@ -4,6 +4,8 @@
  */
 package br.com.lucasoliveira.core.entity;
 
+import java.util.Date;
+
 /**
  *
  * @author lucas
@@ -15,6 +17,7 @@ public class Usuario {
     private String senha;
     private String login;
     private String email;
+    private Date nascimeto;
 
     public Long getId() {
         return id;
